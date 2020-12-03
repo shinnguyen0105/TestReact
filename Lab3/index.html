@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequent</title>
+    <script>
+    var library = [ 
+        {
+            author: 'Bill Gates',
+            title: 'The Road Ahead',
+            readingStatus: true
+        },
+        {
+            author: 'Steve Jobs',
+            title: 'Walter Isaacson',
+            readingStatus: true
+        },
+        {
+            author: 'Suzanne Collins',
+            title:  'Mockingjay: The Final Book of The Hunger Games', 
+            readingStatus: false
+        }];
+    for (var i = 0; i < library.length; i++) 
+    {
+        var book = "'" + library[i].title + "'" + ' by ' + library[i].author + ".";
+        if (library[i].readingStatus) {
+        console.log("Reading " + book);
+        } else
+        {
+        console.log("Need to read " + book);
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Open console tab to show results</h1>
+</body>
+</html>

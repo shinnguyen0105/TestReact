@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequent</title>
+    <script>
+        var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+        var times = 1;
+        var temp = 0;
+        var results;
+        for (var i=0; i<arr1.length; i++)
+        {
+                for (var j=i; j<arr1.length; j++)
+                {
+                        if (arr1[i] == arr1[j])
+                        temp++;
+                        if (times<temp)
+                        {
+                        times=temp; 
+                        results = arr1[i];
+                        }
+                }
+                temp=0;
+        }
+        console.log(results+ " appear " + times +" times") ;
+    </script>
+</head>
+<body>
+    <h1>Open console tab to show results</h1>
+</body>
+</html>
