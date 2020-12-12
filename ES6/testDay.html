@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var d = new Date();
+      var getDate = d.getDay();
+      var getHour = d.getHours();
+      var getMins = d.getMinutes();
+      var getSeconds = d.getSeconds();
+
+      var dayList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var dayReal = dayList[getDate];
+
+      var typeHour = getHour >= 12 ? ' PM' : ' AM';
+      var hourReal = getHour >= 12 ? getHour - 12 : getHour;
+
+      console.log(hourReal + typeHour);
+    </script>
+  </head>
+  <body>
+    <h1>hello</h1>
+  </body>
+</html>
