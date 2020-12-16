@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Lab 1</h1>
+    <h2 id="result"></h2>
+    <br />
+    <h1>Lab 2</h1>
+    <button onclick="printWindows()">Print the windows</button>
+    <h1>Lab 3</h1>
+    <h2 id="format1"></h2>
+    <h2 id="format2"></h2>
+    <script>
+      var d = new Date();
+      var getDay = d.getDay();
+      var getDate = d.getDate();
+      var getMonth = d.getMonth();
+      var getYear = d.getFullYear();
+      var getHour = d.getHours();
+      var getMins = d.getMinutes();
+      var getSeconds = d.getSeconds();
+
+      var dayList = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var dayReal = dayList[getDay];
+
+      var typeHour = getHour >= 12 ? ' PM' : ' AM';
+      var hourReal = getHour >= 12 ? getHour - 12 : getHour;
+
+      document.getElementById('result').innerHTML =
+        'Today is :' +
+        dayReal +
+        '<br/>' +
+        'Current time is:  ' +
+        hourReal +
+        typeHour +
+        ': ' +
+        getMins +
+        ': ' +
+        getSeconds;
+
+      var dateReal = getDate < 10 ? '0' + getDate : getDate;
+      var monthReal = getMonth < 10 ? '0' + getMonth : getMonth;
+
+      document.getElementById('format1').innerHTML =
+        monthReal + '-' + dateReal + '-' + getYear;
+      document.getElementById('format2').innerHTML =
+        monthReal + '/' + dateReal + '/' + getYear;
+      function printWindows() {
+        window.print();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script>
+      const x = 32243;
+      const reverse = (a) => parseInt(String(a).split('').reverse().join(''));
+      console.log(reverse(x));
+    </script> -->
+    <!-- <script>
+      const abc = 'Web Development Tutorial';
+      const findLongest = (str) => {
+        var strSplit = str.split(' ');
+        var longestWord = 0;
+        for (var i = 0; i < strSplit.length; i++) {
+          if (strSplit[i].length > longestWord) {
+            longestWord = strSplit[i];
+          }
+        }
+        return longestWord;
+      };
+      console.log(findLongest(abc));
+    </script> -->
+    <!-- <script>
+      const vowel = (str1) => {
+        var list = 'aeiouAEIOU';
+        var count = 0;
+
+        for (var x = 0; x < str1.length; x++) {
+          if (list.indexOf(str1[x]) !== -1) {
+            count += 1;
+          }
+        }
+        return count;
+      };
+      console.log(vowel('The quick brown fox'));
+    </script> -->
+    <!-- <script>
+      const prime = (n) => {
+        if (n === 1) {
+          return false;
+        } else if (n === 2) {
+          return true;
+        } else {
+          for (var x = 2; x < n; x++) {
+            if (n % x === 0) {
+              return false;
+            }
+          }
+          return true;
+        }
+      };
+      console.log(prime(20));
+    </script> -->
+    <!-- <script>
+      const type = (value) => {
+        var types = [Function, RegExp, Number, String, Boolean, Object],
+          x,
+          len;
+
+        if (typeof value === 'object' || typeof value === 'function') {
+          for (x = 0, len = types.length; x < len; x++) {
+            if (value instanceof types[x]) {
+              return types[x];
+            }
+          }
+        }
+
+        return typeof value;
+      };
+      console.log(type(12));
+      console.log(type('w3resource'));
+      console.log(type(false));
+    </script> -->
+    <script>
+      const matrix = (n) => {
+        var i;
+        var j;
+
+        for (i = 0; i < n; i++) {
+          for (j = 0; j < n; j++) {
+            if (i === j) {
+              console.log(' 1 ');
+            } else {
+              console.log(' 0 ');
+            }
+          }
+          console.log('----------');
+        }
+      };
+      console.log(matrix(4));
+    </script>
+  </head>
+  <body></body>
+</html>
