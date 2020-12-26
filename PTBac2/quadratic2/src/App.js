@@ -5,7 +5,7 @@ function App() {
   const [value, setValue] = useState({ a: '', b: '', c: '' });
   const [result, setResult] = useState({ x1: '', x2: '' });
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    setValue({ ...value, [e.target.name]: e.target.value.replace(/\D/, '') });
   };
 
   const handleResult = () => {
@@ -32,12 +32,15 @@ function App() {
       console.log(result);
     }
   };
+  const clearState = () => {
+    setValue({ ...value, a: '', b: '', c: '' });
+    setResult({ ...result, x1: '', x2: '' });
+  };
   return (
     <div className='App'>
       <div>
         <input
           className='input-box'
-          type='number'
           name='a'
           placeholder='Nhập A'
           value={value.a}
@@ -45,7 +48,6 @@ function App() {
         />
         <input
           className='input-box'
-          type='number'
           name='b'
           placeholder='Nhập B'
           value={value.b}
@@ -53,18 +55,20 @@ function App() {
         />
         <input
           className='input-box'
-          type='number'
           name='c'
           placeholder='Nhập C'
           value={value.c}
           onChange={handleChange}
         />
-        <button value='Send' onClick={handleResult}>
-          Publish
+        <button value='Send' onClick={handleResult} className='btn'>
+          Resolve
         </button>
-        <div className='input-box'>
+        <div className='result-box'>
           Nghiem cua phuong trinh: X1 = {result.x1}, X2 = {result.x2}
         </div>
+        <button className='btn' onClick={clearState}>
+          Clear
+        </button>
       </div>
     </div>
   );
