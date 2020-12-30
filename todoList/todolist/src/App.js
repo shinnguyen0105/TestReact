@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import AddTask from './addTask';
-import Todos from './list-task';
+import TodoList from './list-task';
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -18,7 +18,6 @@ function App() {
 
   const addTodo = (todo) => {
     setTodos([...todos, { text: todo, isCompleted: false }]);
-    console.log(todo);
   };
 
   const markComplete = (index) => {
@@ -26,21 +25,13 @@ function App() {
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
   };
-  const editTitle = (index, title) => {
-    const newTodos = [...todos];
-    newTodos[index].text = title;
-    setTodos(newTodos);
-  };
+
   return (
     <div className='App'>
       <div className='app'>
         <div className='todoform'>
           <AddTask addTodo={addTodo} />
-          <Todos
-            todos={todos}
-            markComplete={markComplete}
-            editTitle={editTitle}
-          />
+          <TodoList todos={todos} markComplete={markComplete} />
         </div>
       </div>
     </div>

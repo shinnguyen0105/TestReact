@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoList = ({ todos, markComplete, editTitle }) => {
+const TodoList = ({ todos, markComplete }) => {
   return (
     <div className={'todo-list'}>
       {todos.map((todo, index) => (
@@ -9,14 +9,13 @@ const TodoList = ({ todos, markComplete, editTitle }) => {
           key={index}
           index={index}
           markComplete={markComplete}
-          editTitle={editTitle}
         />
       ))}
     </div>
   );
 };
 
-const Todo = ({ todo, index, markComplete, editTitle }) => (
+const Todo = ({ todo, index, markComplete }) => (
   <div className='todo'>
     <p style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}>
       <input
@@ -24,6 +23,7 @@ const Todo = ({ todo, index, markComplete, editTitle }) => (
         onChange={() => markComplete(index)}
         name={'completed'}
         id={todo.id}
+        checked={todo.isCompleted ? 'true' : ''}
       />{' '}
       {todo.text}
     </p>
