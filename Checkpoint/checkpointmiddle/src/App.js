@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <Router>
         <Navbar color='light' light expand='md'>
-          <Link to='/home'>
+          <Link to='/songs'>
             <NavbarBrand>HOME Music</NavbarBrand>
           </Link>
           <Nav className='mr-auto' navbar></Nav>
@@ -18,10 +18,10 @@ function App() {
           </Link>
         </Navbar>
         <Switch>
-          <Route exact path='/home'>
+          <Route exact path='/songs'>
             <Home />
           </Route>
-          <Route path='/DetailSong/:id'>
+          <Route path='/songs/:id'>
             <DetailSong />
           </Route>
         </Switch>

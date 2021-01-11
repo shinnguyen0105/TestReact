@@ -10,12 +10,15 @@ import {
   CardGroup,
 } from 'reactstrap';
 import songList from '../assets/songs';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import DetailSong from './DetailSong';
+import { useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 
 const Home = () => {
+  let { path, url } = useRouteMatch();
   return (
-    <div>
-      <Router>
+    <Router>
+      <div>
         <CardGroup>
           {songList.map((song) => (
             <Col sm='4'>
@@ -27,15 +30,20 @@ const Home = () => {
                   </CardSubtitle>
                   <CardText>{song.lyric}</CardText>
                   <Button>
-                    <Link to={`/DetailSong/${song.id}`}>Detail</Link>
+                    <Link to={`${url}/${song.id}`}>Detail</Link>
                   </Button>
                 </CardBody>
               </Card>
             </Col>
           ))}
         </CardGroup>
-      </Router>
-    </div>
+      </div>
+      <Switch>
+        <Route path={`${path}/:id`}>
+          <DetailSong />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
