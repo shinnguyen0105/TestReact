@@ -20,22 +20,26 @@ const Home = () => {
     <Router>
       <div>
         <CardGroup>
-          {songList.map((song) => (
-            <Col sm='4'>
-              <Card>
-                <CardBody>
-                  <CardTitle tag='h5'>{song.title}</CardTitle>
-                  <CardSubtitle tag='h6' className='mb-2 text-muted'>
-                    {song.author}
-                  </CardSubtitle>
-                  <CardText>{song.lyric}</CardText>
-                  <Button>
-                    <Link to={`${url}/${song.id}`}>Detail</Link>
-                  </Button>
-                </CardBody>
-              </Card>
-            </Col>
-          ))}
+          {songList
+            .sort((a, b) => {
+              return new Date(b.publishedDate) - new Date(a.publishedDate);
+            })
+            .map((song) => (
+              <Col sm='4'>
+                <Card>
+                  <CardBody>
+                    <CardTitle tag='h5'>{song.title}</CardTitle>
+                    <CardSubtitle tag='h6' className='mb-2 text-muted'>
+                      {song.author}
+                    </CardSubtitle>
+                    <CardText>{song.lyric}</CardText>
+                    <Button>
+                      <Link to={`${url}/${song.id}`}>Detail</Link>
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+            ))}
         </CardGroup>
       </div>
       <Switch>
