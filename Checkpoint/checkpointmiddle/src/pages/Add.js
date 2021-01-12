@@ -31,7 +31,10 @@ const Add = () => {
   };
   return (
     <div>
-      <Form onSubmit={HandleSubmit}>
+      <Form
+        onSubmit={HandleSubmit}
+        style={{ width: '500px', marginLeft: '30%' }}
+      >
         <FormGroup>
           <Label for='name'>Name Song</Label>
           <Input
