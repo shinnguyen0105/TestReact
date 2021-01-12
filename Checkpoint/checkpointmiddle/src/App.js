@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import { Navbar, NavbarBrand, Nav, Button } from 'reactstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import DetailSong from './pages/DetailSong';
-
+import Add from './pages/Add';
 function App() {
   return (
     <div className='App'>
@@ -18,12 +18,9 @@ function App() {
           </Link>
         </Navbar>
         <Switch>
-          <Route exact path='/songs'>
-            <Home />
-          </Route>
-          <Route path='/songs/:id'>
-            <DetailSong />
-          </Route>
+          <Route exact path='/songs' component={Home} />
+          <Route exact path='/add' component={Add} />
+          <Route exact path='/songs/:id' component={DetailSong} />
         </Switch>
       </Router>
     </div>

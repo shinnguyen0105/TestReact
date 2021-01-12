@@ -10,44 +10,34 @@ import {
   CardGroup,
 } from 'reactstrap';
 import songList from '../assets/songs';
-import DetailSong from './DetailSong';
-import { useRouteMatch } from 'react-router-dom';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  let { path, url } = useRouteMatch();
   return (
-    <Router>
-      <div>
-        <CardGroup>
-          {songList
-            .sort((a, b) => {
-              return new Date(b.publishedDate) - new Date(a.publishedDate);
-            })
-            .map((song) => (
-              <Col sm='4'>
-                <Card>
-                  <CardBody>
-                    <CardTitle tag='h5'>{song.title}</CardTitle>
-                    <CardSubtitle tag='h6' className='mb-2 text-muted'>
-                      {song.author}
-                    </CardSubtitle>
-                    <CardText>{song.lyric}</CardText>
-                    <Button>
-                      <Link to={`${url}/${song.id}`}>Detail</Link>
-                    </Button>
-                  </CardBody>
-                </Card>
-              </Col>
-            ))}
-        </CardGroup>
-      </div>
-      <Switch>
-        <Route path={`${path}/:id`}>
-          <DetailSong />
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <CardGroup>
+        {songList
+          .sort((a, b) => {
+            return new Date(b.publishedDate) - new Date(a.publishedDate);
+          })
+          .map((song, index) => (
+            <Col sm='4' key={index}>
+              <Card>
+                <CardBody>
+                  <CardTitle tag='h5'>{song.title}</CardTitle>
+                  <CardSubtitle tag='h6' className='mb-2 text-muted'>
+                    {song.author}
+                  </CardSubtitle>
+                  <CardText>{song.lyric}</CardText>
+                  <Button>
+                    <Link to={{ pathname: `/songs/${song.id}` }}>Detail</Link>
+                  </Button>
+                </CardBody>
+              </Card>
+            </Col>
+          ))}
+      </CardGroup>
+    </div>
   );
 };
 

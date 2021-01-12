@@ -10,7 +10,7 @@ import {
   Col,
   Row,
 } from 'reactstrap';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const DetailSong = () => {
   let { id } = useParams();
@@ -20,7 +20,7 @@ const DetailSong = () => {
     <div>
       <Row>
         <Col xs='8'>
-          <Card>
+          <Card key={thisSong.id}>
             <CardBody>
               <CardTitle tag='h5'>{thisSong.title}</CardTitle>
               <CardSubtitle tag='h6' className='mb-2 text-muted'>
@@ -36,9 +36,9 @@ const DetailSong = () => {
           <h3>Author's song:</h3>
           {songList
             .filter((s) => s.author === thisSong.author && s.id !== id)
-            .map((song) => (
+            .map((song, index) => (
               <Link to={`${song.id}`}>
-                <h3>{song.title}</h3>
+                <h3 key={index}>{song.title}</h3>
               </Link>
             ))}
         </Col>
